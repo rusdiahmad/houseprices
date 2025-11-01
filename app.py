@@ -63,20 +63,30 @@ elif menu == "Proyek Saya":
     st.header("💼 Proyek Saya")
 
     col1, col2, col3 = st.columns(3)
+
     with col1:
-        st.subheader("House Price Prediction")
+        st.subheader("🏠 House Price Prediction")
         st.image("https://cdn-icons-png.flaticon.com/512/619/619153.png")
-        st.write("Model ML untuk memprediksi harga rumah berdasarkan dataset Kaggle.")
+        st.write("""
+        Membangun model Machine Learning berbasis **Random Forest** untuk memprediksi harga rumah
+        menggunakan dataset *House Prices - Advanced Regression Techniques* dari Kaggle.
+        """)
 
     with col2:
-        st.subheader("EDA ChatGPT Usage")
-        st.image("https://cdn-icons-png.flaticon.com/512/6016/6016960.png")
-        st.write("Exploratory Data Analysis terhadap data simulasi penggunaan ChatGPT.")
+        st.subheader("📊 UTBK Data Analysis")
+        st.image("https://cdn-icons-png.flaticon.com/512/3313/3313383.png")  # 🧑‍🎓 ikon pendidikan/data
+        st.write("""
+        Proyek analisis data hasil **UTBK siswa** untuk mengetahui faktor-faktor yang memengaruhi kelulusan.
+        Melibatkan eksplorasi data, statistik deskriptif, dan visualisasi korelasi antar variabel akademik.
+        """)
 
     with col3:
-        st.subheader("UTBK Data Analysis")
-        st.image("https://cdn-icons-png.flaticon.com/512/4341/4341139.png")
-        st.write("Analisis data nilai UTBK untuk memahami faktor kelulusan siswa.")
+        st.subheader("🧠 Student Performance Prediction")
+        st.image("https://cdn-icons-png.flaticon.com/512/1087/1087927.png")
+        st.write("""
+        Proyek **AI & ML** untuk memprediksi performa belajar siswa berdasarkan data nilai dan kebiasaan belajar.
+        Menggunakan algoritma klasifikasi seperti Random Forest dan Logistic Regression.
+        """)
 
 # -------------------------------------------
 # 📊 VISUALISASI DATA
