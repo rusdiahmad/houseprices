@@ -1,14 +1,16 @@
-# 🏡 My Portfolio with Streamlit
+# 🤖 My AI & ML Portfolio: House Price Prediction Dashboard
 
-Aplikasi Streamlit untuk portofolio dan prediksi harga rumah berbasis dataset Kaggle *House Prices*.
+Aplikasi ini dibuat sebagai bagian dari **Bootcamp AI & Machine Learning**.
+Menampilkan *end-to-end pipeline* untuk prediksi harga rumah berbasis dataset
+**House Prices: Advanced Regression Techniques** dari Kaggle.
 
-### Fitur:
-- Profil dan portofolio pribadi
-- Visualisasi dataset dan korelasi fitur
-- Prediksi harga rumah dengan Random Forest
-- Upload CSV untuk prediksi baru
+### ✨ Fitur Utama
+- Profil & branding pribadi
+- Visualisasi data interaktif
+- Model ML (Random Forest)
+- Upload CSV untuk prediksi harga rumah baru
 
-### Jalankan lokal:
+### 🚀 Cara Menjalankan
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
