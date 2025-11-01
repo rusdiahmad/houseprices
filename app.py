@@ -8,21 +8,24 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 # -------------------------------------------
-# 🧩 Konfigurasi Halaman
+# 🧩 KONFIGURASI HALAMAN
 # -------------------------------------------
-st.set_page_config(page_title="My Portfolio with Streamlit",
-                   page_icon="🏡",
+st.set_page_config(page_title="My AI & ML Portfolio: House Price Prediction Dashboard",
+                   page_icon="🤖",
                    layout="wide")
 
-st.title("🏡 My Portfolio with Streamlit")
+st.title("🤖 My AI & ML Portfolio: House Price Prediction Dashboard")
 st.markdown("""
-Selamat datang di aplikasi portofolio saya!  
-Di sini Anda dapat melihat **profil**, **proyek**, **visualisasi data House Prices**,  
-serta mencoba langsung **prediksi harga rumah** berbasis Machine Learning.
+Selamat datang di **My AI & Machine Learning Portfolio**!  
+Aplikasi ini menampilkan implementasi *end-to-end pipeline* untuk prediksi harga rumah 
+menggunakan dataset **House Prices: Advanced Regression Techniques** dari Kaggle.
+
+Anda dapat melihat profil saya, proyek-proyek AI/ML, 
+analisis data interaktif, serta mencoba langsung model prediksi harga rumah.
 """)
 
 # -------------------------------------------
-# 📍 Sidebar Navigasi
+# 📍 SIDEBAR NAVIGASI
 # -------------------------------------------
 menu = st.sidebar.radio("Navigasi", [
     "Tentang Saya",
@@ -32,47 +35,51 @@ menu = st.sidebar.radio("Navigasi", [
 ])
 
 # -------------------------------------------
-# 🧑‍💼 Tentang Saya
+# 👤 TENTANG SAYA
 # -------------------------------------------
 if menu == "Tentang Saya":
     st.header("👋 Tentang Saya")
-    st.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=150)
+
+    # tampilkan foto profil
+    st.image("Pas Photo.jpg", width=180, caption="Rusdi Ahmad", use_container_width=False)
+
     st.markdown("""
     **Nama:** Rusdi Ahmad  
-    **Latar Belakang:** Guru Matematika & Data Science Enthusiast  
+    **Latar Belakang:** Guru Matematika & AI/ML Enthusiast  
+    **Bootcamp:** Artificial Intelligence & Machine Learning  
     **Keahlian:**  
-    - Machine Learning  
+    - Machine Learning & Predictive Modeling  
     - Data Visualization  
     - Streamlit, Pandas, Scikit-Learn  
-    - Pendidikan & Analisis Data  
-    
-    > “Data bukan hanya angka, tapi cerita yang menunggu untuk diceritakan.”  
+    - Pendidikan dan Data Analysis  
+
+    > “Artificial Intelligence bukan hanya tentang algoritma, tapi tentang memahami data dan memecahkan masalah nyata.”  
     """)
 
 # -------------------------------------------
-# 💼 Proyek Saya
+# 💼 PROYEK SAYA
 # -------------------------------------------
 elif menu == "Proyek Saya":
     st.header("💼 Proyek Saya")
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.subheader("Analisis Nilai UTBK")
-        st.image("https://cdn-icons-png.flaticon.com/512/4341/4341139.png")
-        st.write("Proyek analisis data nilai UTBK untuk mengetahui faktor kelulusan.")
+        st.subheader("House Price Prediction")
+        st.image("https://cdn-icons-png.flaticon.com/512/619/619153.png")
+        st.write("Model ML untuk memprediksi harga rumah berdasarkan dataset Kaggle.")
 
     with col2:
         st.subheader("EDA ChatGPT Usage")
         st.image("https://cdn-icons-png.flaticon.com/512/6016/6016960.png")
-        st.write("Exploratory Data Analysis penggunaan ChatGPT dengan data simulasi.")
+        st.write("Exploratory Data Analysis terhadap data simulasi penggunaan ChatGPT.")
 
     with col3:
-        st.subheader("Prediksi Harga Rumah")
-        st.image("https://cdn-icons-png.flaticon.com/512/619/619153.png")
-        st.write("Model Machine Learning untuk memprediksi harga rumah dari dataset Kaggle.")
+        st.subheader("UTBK Data Analysis")
+        st.image("https://cdn-icons-png.flaticon.com/512/4341/4341139.png")
+        st.write("Analisis data nilai UTBK untuk memahami faktor kelulusan siswa.")
 
 # -------------------------------------------
-# 📊 Visualisasi Data
+# 📊 VISUALISASI DATA
 # -------------------------------------------
 elif menu == "Visualisasi Data":
     st.header("📊 Visualisasi Dataset House Prices")
@@ -96,7 +103,7 @@ elif menu == "Visualisasi Data":
     st.pyplot(fig)
 
 # -------------------------------------------
-# 🤖 Prediksi Harga Rumah
+# 🤖 PREDIKSI HARGA RUMAH
 # -------------------------------------------
 elif menu == "Prediksi Harga Rumah":
     st.header("🏠 Prediksi Harga Rumah Menggunakan Model ML")
@@ -114,9 +121,10 @@ elif menu == "Prediksi Harga Rumah":
     y_pred = model.predict(X_test)
 
     st.write("### 🔎 Evaluasi Model")
-    st.metric("MAE", f"{mean_absolute_error(y_test, y_pred):,.2f}")
-    st.metric("RMSE", f"{np.sqrt(mean_squared_error(y_test, y_pred)):,.2f}")
-    st.metric("R² Score", f"{r2_score(y_test, y_pred):.3f}")
+    col1, col2, col3 = st.columns(3)
+    col1.metric("MAE", f"{mean_absolute_error(y_test, y_pred):,.2f}")
+    col2.metric("RMSE", f"{np.sqrt(mean_squared_error(y_test, y_pred)):,.2f}")
+    col3.metric("R² Score", f"{r2_score(y_test, y_pred):.3f}")
 
     st.write("---")
     st.write("### 📤 Upload File CSV untuk Prediksi Baru")
@@ -124,12 +132,12 @@ elif menu == "Prediksi Harga Rumah":
 
     if uploaded_file:
         new_data = pd.read_csv(uploaded_file)
-        st.write("Cuplikan Data yang Diupload:")
+        st.write("Cuplikan Data:")
         st.dataframe(new_data.head())
 
         new_data = new_data[X.columns.intersection(new_data.columns)].fillna(0)
         preds = model.predict(new_data)
-        st.success("Prediksi Selesai ✅")
+        st.success("✅ Prediksi Selesai!")
         result_df = pd.DataFrame({"Predicted_Price": preds})
         st.dataframe(result_df)
 
