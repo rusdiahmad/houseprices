@@ -73,20 +73,21 @@ elif menu == "Proyek Saya":
         """)
 
     with col2:
-        st.subheader("📊 UTBK Data Analysis")
-        st.image("https://cdn-icons-png.flaticon.com/512/3313/3313383.png")  # 🧑‍🎓 ikon pendidikan/data
+        st.subheader("📚 UTBK Data Analysis")
+        st.image("https://cdn-icons-png.flaticon.com/512/2232/2232688.png")  # gambar buku terbuka
         st.write("""
-        Proyek analisis data hasil **UTBK siswa** untuk mengetahui faktor-faktor yang memengaruhi kelulusan.
-        Melibatkan eksplorasi data, statistik deskriptif, dan visualisasi korelasi antar variabel akademik.
+        Analisis data hasil **UTBK siswa** untuk mengidentifikasi faktor-faktor yang berpengaruh terhadap kelulusan.
+        Proyek ini berfokus pada eksplorasi data, statistik deskriptif, dan visualisasi korelasi antar variabel akademik.
         """)
 
     with col3:
-        st.subheader("🧠 Student Performance Prediction")
-        st.image("https://cdn-icons-png.flaticon.com/512/1087/1087927.png")
+        st.subheader("🧮 Mathematics Question Generator (AI Project)")
+        st.image("https://cdn-icons-png.flaticon.com/512/3135/3135706.png")  # gambar ikon AI + pendidikan
         st.write("""
-        Proyek **AI & ML** untuk memprediksi performa belajar siswa berdasarkan data nilai dan kebiasaan belajar.
-        Menggunakan algoritma klasifikasi seperti Random Forest dan Logistic Regression.
+        Proyek berbasis **Artificial Intelligence** yang bertujuan menghasilkan soal matematika otomatis
+        menggunakan model NLP sederhana. Proyek ini mengeksplorasi integrasi AI dalam bidang pendidikan.
         """)
+
 
 # -------------------------------------------
 # 📊 VISUALISASI DATA
